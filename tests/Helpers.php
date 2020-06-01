@@ -15,8 +15,27 @@ function getCommandsPath()
 function getBasicApp()
 {
     $config = [
+        'app_path' => getCommandsPath()
+    ];
+
+    return new App($config);
+}
+
+function getProdApp()
+{
+    $config = [
         'app_path' => getCommandsPath(),
-        'theme' => 'unicorn',
+        'debug' => false
+    ];
+
+    return new App($config);
+}
+
+function getThemedApp()
+{
+    $config = [
+        'app_path' => getCommandsPath(),
+        'theme' => '\Unicorn',
     ];
 
     return new App($config);
@@ -30,8 +49,7 @@ function getCommandCall(array $parameters = null)
 function getRegistry()
 {
     $config = [
-        'app_path' => getCommandsPath(),
-        'theme' => 'unicorn',
+        'app_path' => getCommandsPath()
     ];
 
     $app = new App($config);
